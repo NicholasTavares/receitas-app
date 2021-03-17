@@ -33,7 +33,7 @@ const ListReceita = props => {
         const SearchByIngredientParams = {
             BaseURL: 'https://api.spoonacular.com/recipes/',
             //TODO: por a chave da api em um arquivo .env
-            method: `findByIngredients?ingredients=${paramIngredientes}&apiKey=04a784310ffd4491b22632c5555f119c`,
+            method: `findByIngredients?ingredients=${paramIngredientes}&number=15&apiKey=04a784310ffd4491b22632c5555f119c`,
             type: 'byIngredient'
         }
 
