@@ -1,47 +1,47 @@
 import axios from 'axios'
 import { useState } from 'react'
 
-export default function APIBusca(InitialParam) {
+export default function APIBusca(initialSearch) {
 
-    const [result, setResult] = useState(InitialParam)
+    const [result, setResult] = useState(initialSearch)
 
-    async function Search(dados) {
+    function tratamentoDeSintaxe(response, type) {
+        switch (type) {
 
-        console.log(dados)
+            case ("initial"):
+                let changeToList = response.recipes
+                setResult(changeToList)
+                break
 
-        if (dados) {
-            let paramIngredientes = ''
-            dados.split(' ').map((ingrediente) => {
-                console.log(ingrediente)
-                if (paramIngredientes === '') {
-                    paramIngredientes += `+${ingrediente}`
-                } else {
-                    paramIngredientes += `,+${ingrediente}`
-                }
-            })
+            case ("byIngredient"):
+                setResult(response)
+                break
 
-            //TODO: por a chave da api em um arquivo .env
-            const SearchParams = {
-                BaseURL: `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${paramIngredientes}&apiKey=04a784310ffd4491b22632c5555f119c`,
-            }
+            default:
+                console.log('Não entrou em nenhum dos cases')
+        }
+    }
 
-            let response = null
+    async function Search(parmsSeachObject) {
 
-            try {
-                await axios.get(SearchParams.BaseURL).then(res => response = res.data)
+        let parmsSeach = null
+        let response = null
 
-            } catch (error) {
-                console.log(error)
-            }
+        parmsSeach = parmsSeachObject.BaseURL + parmsSeachObject.method
 
-            return setResult(response)
+        try {
+            await axios.get(parmsSeach).then(res => response = res.data)
 
+        } catch (error) {
+            console.log(error)
         }
 
-        return null
+        return tratamentoDeSintaxe(response, parmsSeachObject.type)
 
     }
 
     return [result, Search]
 
 }
+
+
