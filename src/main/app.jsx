@@ -1,8 +1,6 @@
 import React from 'react'
 import ListReceita from '../components/receita/ListReceita'
 
-
-
 const Container = () => {
 
     return (

@@ -12,7 +12,6 @@ const ListReceita = props => {
             BaseURL: 'https://api.spoonacular.com/recipes/',
             //TODO: por a chave da api em um arquivo .env
             method: `random?number=15&apiKey=04a784310ffd4491b22632c5555f119c`,
-
             type: 'initial'
         }
 
@@ -35,7 +34,6 @@ const ListReceita = props => {
             BaseURL: 'https://api.spoonacular.com/recipes/',
             //TODO: por a chave da api em um arquivo .env
             method: `findByIngredients?ingredients=${paramIngredientes}&apiKey=04a784310ffd4491b22632c5555f119c`,
-
             type: 'byIngredient'
         }
 
@@ -59,14 +57,18 @@ const ListReceita = props => {
                 </form>
             </nav>
 
-            {pesquisa ? pesquisa.map((receitaDado) =>
-            (<Receita title={receitaDado.title}
-                image={receitaDado.image}
-                alt={receitaDado.title}
-                href={receitaDado.sourceUrl}
-                key={receitaDado.id}
-            />))
-                : <div>Carregando...</div>}
+            {console.log(pesquisa)}
+            <div className='alinhamento-cards'>
+                {pesquisa ? pesquisa.map((receitaDado) =>
+                (<Receita title={receitaDado.title}
+                    image={receitaDado.image}
+                    alt={receitaDado.title}
+                    href={receitaDado.sourceUrl}
+                    servings={receitaDado.servings}
+                    key={receitaDado.id}
+                />))
+                    : <div>Carregando...</div>}
+            </div>
 
         </div>
     )

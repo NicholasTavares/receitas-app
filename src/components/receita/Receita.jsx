@@ -4,11 +4,12 @@ import './Receita.css'
 const Receita = props => {
 
     return (
-        <div className="card receita-container">
+        <div className="receita-container">
             <img className="card-img-top img-tamanho-receita" src={props.image} alt={props.alt} />
-            <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{props.title}</h5>
-                <a href={props.href} className="btn btn-primary">Get this recipe</a>
+            <div className="card-descricao">
+                <h5 className="card-titulo">{props.title}</h5>
+                <span>For&nbsp;<strong>{props.servings}</strong>&nbsp;people</span>
+                <a href={props.href} className="botao">Get this recipe</a>
             </div>
         </div>
     )
