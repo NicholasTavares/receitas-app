@@ -4,15 +4,8 @@ import Receita from './Receita'
 
 const ListReceita = props => {
 
-    const [pesquisa, setPesquisa] = useState('')
-
-    function Consulta(dados) {
-        let response = APIBusca(dados)
-
-        console.log(`Na página de component ${response}`)
-    }
-
-
+    const [busca, setBusca] = useState('')
+    const [pesquisa, setPesquisa] = APIBusca(null)
 
     return (
         <div className='col'>
@@ -21,13 +14,18 @@ const ListReceita = props => {
 
                 <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                        onChange={(e) => setPesquisa(e.target.value)} value={pesquisa} />
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="button" onClick={() => Consulta(pesquisa)}>
+                        onChange={(e) => setBusca(e.target.value)} value={busca} />
+                    <button className="btn btn-outline-success my-2 my-sm-0" type="button" onClick={() => setPesquisa(busca)}>
                         Search
                     </button>
                 </form>
             </nav>
-            <Receita title="Geleia de amora" description="Primeiro, colha as amoras..." />
+
+            {pesquisa ? pesquisa.map((receitaDado) => (
+                <Receita title={receitaDado.title} image={receitaDado.image} alt={receitaDado.title} key={receitaDado.id} />
+            ))
+                : <div>Carregando...</div>}
+
         </div>
     )
 }
