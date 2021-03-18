@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Tags from '../UI/Tags'
 import './Menu.css'
 
 const Menus = props => {
@@ -17,20 +18,9 @@ const Menus = props => {
                     </button>
             </form>
 
-            <div className='container-tags'>
-                <form className='tags'>
-                    <div>
-                        <div className='container-busca-tags'>
-                            <input type="text" />
-                        </div>
-                    </div>
-                </form>
-
-                <form className='tags'>
-                    <div>
-                        <div className='container-busca-tags'></div>
-                    </div>
-                </form>
+            <div className='container-autocomple-tags'>
+                <Tags />
+                <Tags />
             </div>
 
         </nav>

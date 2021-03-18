@@ -17,7 +17,7 @@
     flex-wrap: wrap
 }
 
-.container-tags{
+.container-autocomple-tags{
     display: flex;
     padding: 10px;
 }
@@ -32,17 +32,26 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 80%;
+    padding: 10px;
     height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.container-busca-tags{
-    margin-top: 10px;
-    width: 80%;
+.busca-tags{
+    outline: none;
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
     height: 30px;
     background-color: aliceblue;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 8px;
+}
+
+.container-tags{
+    background-color: aliceblue;
+    width: 100%;
+    height: 100px;
 }
