@@ -1,26 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import './Tag.css'
 
 const Tags = props => {
 
+    const [buscaText, setBuscaText] = useState('')
+
+    const keyHandler = (e, text) => {
+        if (e.key === 'Enter') {
+            createTag(text)
+        } else {
+            return //TODO: enviar um aviso pra escrever uma tag
+        }
+    }
+
     function createTag(text) {
+        let container_tags = document.getElementById('container-tags')
+        console.log(container_tags)
+        let tag = document.createElement("div")
+        tag.className = 'tag'
+        tag.innerHTML = text
+        container_tags.appendChild(tag)
 
-        let container_tags = document.getElementsByClassName('container-tags')
-
-
-        return (
-            <div></div>
-        )
+        return
     }
 
     return (
-        <form className='tags'>
+        <div className='tags'>
             <div>
-                <input type="text" className='busca-tags' onKeyDown={e => createTag(e.target.value)} />
-                <div className='container-tags'>
+                <input type="text" className='busca-tags' onKeyDown={e => keyHandler(e, buscaText)}
+                    value={buscaText} onChange={e => setBuscaText(e.target.value)} />
+                <div id='container-tags'>
 
                 </div>
             </div>
-        </form>
+        </div>
     )
 }
 

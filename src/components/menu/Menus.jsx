@@ -20,7 +20,6 @@ const Menus = props => {
 
             <div className='container-autocomple-tags'>
                 <Tags />
-                <Tags />
             </div>
 
         </nav>

@@ -47,7 +47,6 @@ const ListReceita = props => {
 
             <Menus searchByIngredient={searchByIngredient} />
 
-            {console.log(pesquisa)}
             <div className='alinhamento-cards'>
                 {pesquisa ? pesquisa.map((receitaDado) =>
                 (<Receita title={receitaDado.title}
