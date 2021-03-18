@@ -6,6 +6,10 @@ const Menus = props => {
 
     const [busca, setBusca] = useState('')
 
+    function buscaPorTags(ingredientes) {
+        props.searchByIngredient(ingredientes)
+    }
+
     return (
         <nav className="nav-custom-bar">
 
@@ -19,7 +23,7 @@ const Menus = props => {
             </form>
 
             <div className='container-autocomple-tags'>
-                <Tags />
+                <Tags buscaPorTags={buscaPorTags} />
             </div>
 
         </nav>

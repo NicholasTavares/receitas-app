@@ -6,6 +6,8 @@ const Tags = props => {
     const [buscaText, setBuscaText] = useState('')
 
     const keyHandler = (e, text) => {
+        //tentar usar isso para diferenciar os outros campos
+        //console.log('Evento: ', e.target.className)
         if (e.key === 'Enter') {
             createTag(text)
         } else {
@@ -20,14 +22,26 @@ const Tags = props => {
         tag.className = 'tag'
         tag.innerHTML = text
         container_tags.appendChild(tag)
-
-        return
+        Search()
     }
+
+    function Search() {
+        let campoIngredientes = document.getElementById('container-tags')
+        let ingredientes = campoIngredientes.children
+        let ingredientesText = []
+        for (let i = 0; ingredientes.length > i; i++) {
+            ingredientesText[i] = ingredientes[i].innerHTML
+        }
+
+        props.buscaPorTags(ingredientesText)
+
+    }
+
 
     return (
         <div className='tags'>
             <div>
-                <input type="text" className='busca-tags' onKeyDown={e => keyHandler(e, buscaText)}
+                <input type="text" className='busca-tags-ingredientes' onKeyDown={e => keyHandler(e, buscaText)}
                     value={buscaText} onChange={e => setBuscaText(e.target.value)} />
                 <div id='container-tags'>
 

@@ -7,4 +7,16 @@
     color: white;
     margin: 4px;
     height: 28px;
+    
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ddd;
 }

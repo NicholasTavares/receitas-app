@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import APIBusca from '../../api/api'
 import Menus from '../menu/Menus'
 import Receita from './Receita'
@@ -11,7 +11,7 @@ const ListReceita = props => {
         const initialSeachRandom = {
             BaseURL: 'https://api.spoonacular.com/recipes/',
             //TODO: por a chave da api em um arquivo .env
-            method: `random?number=15&apiKey=04a784310ffd4491b22632c5555f119c`,
+            method: `random?number=15&apiKey=7b51c445b4cb4ef4b50cd7d78fd805b4`,
             type: 'initial'
         }
 
@@ -21,7 +21,7 @@ const ListReceita = props => {
     function searchByIngredient(IngridientList) {
         let paramIngredientes = ''
         if (IngridientList) {
-            IngridientList.split(' ').map((ingrediente) => {
+            IngridientList.map((ingrediente) => {
                 if (paramIngredientes === '') {
                     paramIngredientes += `+${ingrediente}`
                 } else {
@@ -33,7 +33,7 @@ const ListReceita = props => {
         const SearchByIngredientParams = {
             BaseURL: 'https://api.spoonacular.com/recipes/',
             //TODO: por a chave da api em um arquivo .env
-            method: `findByIngredients?ingredients=${paramIngredientes}&number=15&apiKey=04a784310ffd4491b22632c5555f119c`,
+            method: `findByIngredients?ingredients=${paramIngredientes}&number=15&apiKey=7b51c445b4cb4ef4b50cd7d78fd805b4`,
             type: 'byIngredient'
         }
 
@@ -47,6 +47,7 @@ const ListReceita = props => {
 
             <Menus searchByIngredient={searchByIngredient} />
 
+            {console.log(pesquisa)}
             <div className='alinhamento-cards'>
                 {pesquisa ? pesquisa.map((receitaDado) =>
                 (<Receita title={receitaDado.title}
