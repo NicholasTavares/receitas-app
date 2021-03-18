@@ -1,0 +1,48 @@
+.nav-custom-bar{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-custom-bar > form{
+    display: flex;
+    margin: 10px;
+}
+
+.nav-custom-bar > div {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.container-tags{
+    display: flex;
+    padding: 10px;
+}
+
+.tags{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.tags > div{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 80%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-busca-tags{
+    margin-top: 10px;
+    width: 80%;
+    height: 30px;
+    background-color: aliceblue;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}

@@ -15,6 +15,16 @@
     border: 1px solid #ccc;
     margin: auto;
     margin-top: 20px;
+    bottom: 0;
+    transition: bottom 0.4s linear, width 0.4s linear, border 0.4s linear;
+}
+
+.receita-container:hover{
+    width: 215px;
+    position: relative;
+    bottom: 50px;
+    z-index: 100;
+    border: 2px solid #ccc;
 }
 
 .card-titulo{
@@ -70,3 +80,4 @@
     background-color: #DDE1CA;
     color: #B238EB;
 }
+

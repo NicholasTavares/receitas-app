@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import APIBusca from '../../api/api'
+import Menus from '../menu/Menus'
 import Receita from './Receita'
 
 const ListReceita = props => {
 
-    const [busca, setBusca] = useState('')
     const [pesquisa, setPesquisa] = APIBusca(null)
 
     function initialSearch() {
@@ -44,18 +44,8 @@ const ListReceita = props => {
 
     return (
         <div className='col'>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">Navbar</a>
 
-                <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                        onChange={(e) => setBusca(e.target.value)} value={busca} />
-                    <button className="btn btn-outline-success my-2 my-sm-0"
-                        type="button" onClick={() => searchByIngredient(busca)}>
-                        Search
-                    </button>
-                </form>
-            </nav>
+            <Menus searchByIngredient={searchByIngredient} />
 
             {console.log(pesquisa)}
             <div className='alinhamento-cards'>
