@@ -1,20 +1,37 @@
 .tag{
-    text-align: justify;
-    padding: 5px 8px 5px 8px;
-    line-height: normal;
-    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: blueviolet;
-    color: white;
+    border-radius: 10px;
+    padding: 5px 8px 5px 6px;
     margin: 4px;
     height: 28px;
-    
+}
+
+.text-tag{
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+.remove-tag{
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: font-size 0.2s linear, color 0.2s linear;
+}
+
+.remove-tag:hover{
+    font-size: 18px;
+    color: #FF1109;
 }
 
 ::-webkit-scrollbar {
     width: 6px;
 }
- 
-
  
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Tags from '../UI/Tags'
+import ListTags from '../UI/ListTags'
 import './Menu.css'
 
 const Menus = props => {
@@ -23,7 +23,7 @@ const Menus = props => {
             </form>
 
             <div className='container-autocomple-tags'>
-                <Tags buscaPorTags={buscaPorTags} />
+                <ListTags buscaPorTags={buscaPorTags} />
             </div>
 
         </nav>
