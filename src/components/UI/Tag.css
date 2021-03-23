@@ -20,13 +20,12 @@
     align-items: center;
     color: white;
     cursor: pointer;
-    margin-left: 5px;
-    transition: font-size 0.2s linear, color 0.2s linear;
+    margin-left: 8px;
+    transition: font-size 0.2s linear;
 }
 
 .remove-tag:hover{
     font-size: 18px;
-    color: #FF1109;
 }
 
 ::-webkit-scrollbar {

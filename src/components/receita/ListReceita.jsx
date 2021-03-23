@@ -45,7 +45,7 @@ const ListReceita = props => {
     return (
         <div className='col'>
 
-            <Menus searchByIngredient={searchByIngredient} />
+            <Menus searchByIngredient={searchByIngredient} initialSearch={initialSearch} />
 
             <div className='alinhamento-cards'>
                 {pesquisa ? pesquisa.map((receitaDado) =>

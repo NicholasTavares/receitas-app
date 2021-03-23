@@ -10,8 +10,15 @@ const Tag = props => {
         let lista_nova = props.tagsList.filter((ingrediente, _,) => {
             return ingrediente !== tag
         })
-        props.setTagsList([lista_nova])
-        props.busca(lista_nova)
+        if (lista_nova.length < 1) {
+            props.setTagsList([])
+            props.initialSearch()
+        } else {
+            console.log(lista_nova)
+            props.setTagsList(lista_nova)
+            props.busca(lista_nova)
+        }
+
     }
 
     return (

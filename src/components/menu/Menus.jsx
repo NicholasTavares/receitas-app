@@ -23,7 +23,7 @@ const Menus = props => {
             </form>
 
             <div className='container-autocomple-tags'>
-                <ListTags buscaPorTags={buscaPorTags} />
+                <ListTags buscaPorTags={buscaPorTags} initialSearch={props.initialSearch} />
             </div>
 
         </nav>
