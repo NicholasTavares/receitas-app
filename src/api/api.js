@@ -6,15 +6,22 @@ export default function APIBusca(initialSearch) {
     const [result, setResult] = useState(initialSearch)
 
     function tratamentoDeSintaxe(response, type) {
+        let changeToList = ''
+        console.log('Resposta da busca por nome: ', response)
         switch (type) {
 
             case ("initial"):
-                let changeToList = response.recipes
+                changeToList = response.recipes
                 setResult(changeToList)
                 break
 
             case ("byIngredient"):
                 setResult(response)
+                break
+
+            case ("byName"):
+                changeToList = response.results
+                setResult(changeToList)
                 break
 
             default:

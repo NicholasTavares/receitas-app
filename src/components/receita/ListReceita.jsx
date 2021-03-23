@@ -11,11 +11,24 @@ const ListReceita = props => {
         const initialSeachRandom = {
             BaseURL: 'https://api.spoonacular.com/recipes/',
             //TODO: por a chave da api em um arquivo .env
-            method: `random?number=15&apiKey=7b51c445b4cb4ef4b50cd7d78fd805b4`,
+            method: `random?number=15&apiKey=04a784310ffd4491b22632c5555f119c`,
             type: 'initial'
         }
 
         return setPesquisa(initialSeachRandom)
+    }
+
+    function searchByRecipe(textRecipe) {
+        if (textRecipe) {
+            const SearchByRecipeParams = {
+                BaseURL: 'https://api.spoonacular.com/recipes/',
+                //TODO: por a chave da api em um arquivo .env
+                method: `complexSearch?query=${textRecipe}&number=15&apiKey=04a784310ffd4491b22632c5555f119c`,
+                type: 'byName'
+            }
+
+            return setPesquisa(SearchByRecipeParams)
+        }
     }
 
     function searchByIngredient(IngridientList) {
@@ -45,7 +58,7 @@ const ListReceita = props => {
     return (
         <div className='col'>
 
-            <Menus searchByIngredient={searchByIngredient} initialSearch={initialSearch} />
+            <Menus searchByIngredient={searchByIngredient} searchByRecipe={searchByRecipe} initialSearch={initialSearch} />
 
             <div className='alinhamento-cards'>
                 {pesquisa ? pesquisa.map((receitaDado) =>

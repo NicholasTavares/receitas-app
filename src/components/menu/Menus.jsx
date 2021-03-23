@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { BiSearch } from 'react-icons/bi'
+import { IoIosArrowDown } from 'react-icons/io'
 import ListTags from '../UI/ListTags'
 import './Menu.css'
 
@@ -13,17 +15,22 @@ const Menus = props => {
     return (
         <nav className="nav-custom-bar">
 
-            <form>
-                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                    onChange={(e) => setBusca(e.target.value)} value={busca} />
-                <button className="btn btn-outline-success my-2 my-sm-0"
-                    type="button" onClick={() => props.searchByIngredient(busca)}>
-                    Search
-                    </button>
-            </form>
+            <div id='slide'>
+                <div id='busca-nome-receita'>
+                    <input id="campo-busca-receita" type="search" placeholder="Pesquise o nome de uma receita"
+                        aria-label="Search" onChange={(e) => setBusca(e.target.value)} value={busca} />
+                    <div id='btn-busca-receita' type="button" onClick={() => props.searchByRecipe(busca)}>
+                        <BiSearch />
+                    </div>
+                </div>
 
-            <div className='container-autocomple-tags'>
-                <ListTags buscaPorTags={buscaPorTags} initialSearch={props.initialSearch} />
+                <div className='container-tags-busca'>
+                    <ListTags buscaPorTags={buscaPorTags} initialSearch={props.initialSearch} />
+                </div>
+
+                <div id='icone-slide'>
+                    <IoIosArrowDown />
+                </div>
             </div>
 
         </nav>

@@ -28,7 +28,8 @@ const Tags = ({ buscaPorTags, initialSearch }) => {
                     ref={inputRef} />
                 <div id='container-tags'>
                     {tags && (tags.map((ingredienteText, index) => <Tag text={ingredienteText} key={index}
-                        tagsList={tags} setTagsList={setTags} busca={buscaPorTags} initialSearch={initialSearch} />))}
+                        tagsList={tags} setTagsList={setTags}
+                        busca={buscaPorTags} initialSearch={initialSearch} />))}
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import './Tag.css'
 
 const Tag = props => {
 
-
     function removeTag(tag) {
         console.log('Lista antes: ', props.tagsList)
         let lista_nova = props.tagsList.filter((ingrediente, _,) => {
