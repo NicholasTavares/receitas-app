@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import APIBusca from '../../api/api'
+import Menus from '../menu/Menus'
 import Receita from './Receita'
 
 const ListReceita = props => {
 
-    const [busca, setBusca] = useState('')
     const [pesquisa, setPesquisa] = APIBusca(null)
 
     function initialSearch() {
@@ -18,10 +18,23 @@ const ListReceita = props => {
         return setPesquisa(initialSeachRandom)
     }
 
+    function searchByRecipe(textRecipe) {
+        if (textRecipe) {
+            const SearchByRecipeParams = {
+                BaseURL: 'https://api.spoonacular.com/recipes/',
+                //TODO: por a chave da api em um arquivo .env
+                method: `complexSearch?query=${textRecipe}&number=15&apiKey=04a784310ffd4491b22632c5555f119c`,
+                type: 'byName'
+            }
+
+            return setPesquisa(SearchByRecipeParams)
+        }
+    }
+
     function searchByIngredient(IngridientList) {
         let paramIngredientes = ''
         if (IngridientList) {
-            IngridientList.split(' ').map((ingrediente) => {
+            IngridientList.map((ingrediente) => {
                 if (paramIngredientes === '') {
                     paramIngredientes += `+${ingrediente}`
                 } else {
@@ -33,7 +46,7 @@ const ListReceita = props => {
         const SearchByIngredientParams = {
             BaseURL: 'https://api.spoonacular.com/recipes/',
             //TODO: por a chave da api em um arquivo .env
-            method: `findByIngredients?ingredients=${paramIngredientes}&number=15&apiKey=04a784310ffd4491b22632c5555f119c`,
+            method: `findByIngredients?ingredients=${paramIngredientes}&number=15&apiKey=7b51c445b4cb4ef4b50cd7d78fd805b4`,
             type: 'byIngredient'
         }
 
@@ -44,20 +57,9 @@ const ListReceita = props => {
 
     return (
         <div className='col'>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">Navbar</a>
 
-                <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                        onChange={(e) => setBusca(e.target.value)} value={busca} />
-                    <button className="btn btn-outline-success my-2 my-sm-0"
-                        type="button" onClick={() => searchByIngredient(busca)}>
-                        Search
-                    </button>
-                </form>
-            </nav>
+            <Menus searchByIngredient={searchByIngredient} searchByRecipe={searchByRecipe} initialSearch={initialSearch} />
 
-            {console.log(pesquisa)}
             <div className='alinhamento-cards'>
                 {pesquisa ? pesquisa.map((receitaDado) =>
                 (<Receita title={receitaDado.title}

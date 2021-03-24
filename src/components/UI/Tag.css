@@ -1,0 +1,38 @@
+.tag{
+    background-color: #1F64DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 8px 5px 6px;
+    margin: 4px;
+    height: 28px;
+}
+
+
+.text-tag{
+    text-align: center;
+    color: white;
+}
+
+.remove-tag{
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: font-size 0.2s linear;
+}
+
+.remove-tag:hover{
+    font-size: 18px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ddd;
+}

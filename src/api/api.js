@@ -6,15 +6,22 @@ export default function APIBusca(initialSearch) {
     const [result, setResult] = useState(initialSearch)
 
     function tratamentoDeSintaxe(response, type) {
+        console.log(response)
+        let changeToList = ''
         switch (type) {
 
             case ("initial"):
-                let changeToList = response.recipes
+                changeToList = response.recipes
                 setResult(changeToList)
                 break
 
             case ("byIngredient"):
                 setResult(response)
+                break
+
+            case ("byName"):
+                changeToList = response.results
+                setResult(changeToList)
                 break
 
             default:
@@ -30,7 +37,10 @@ export default function APIBusca(initialSearch) {
         parmsSeach = parmsSeachObject.BaseURL + parmsSeachObject.method
 
         try {
-            await axios.get(parmsSeach).then(res => response = res.data)
+            await axios.get(parmsSeach).then(res => {
+                console.log('Response: ', res)
+                return response = res.data
+            })
 
         } catch (error) {
             console.log(error)
