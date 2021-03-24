@@ -25,7 +25,7 @@ const Tags = ({ buscaPorTags, initialSearch }) => {
         <div className='tags'>
             <div>
                 <input type="text" className='busca-tags-ingredientes' onKeyDown={e => keyHandler(e)}
-                    ref={inputRef} />
+                    ref={inputRef} placeholder='Apple' />
                 <div id='container-tags'>
                     {tags && (tags.map((ingredienteText, index) => <Tag text={ingredienteText} key={index}
                         tagsList={tags} setTagsList={setTags}

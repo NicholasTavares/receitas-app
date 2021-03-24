@@ -6,8 +6,8 @@ export default function APIBusca(initialSearch) {
     const [result, setResult] = useState(initialSearch)
 
     function tratamentoDeSintaxe(response, type) {
+        console.log(response)
         let changeToList = ''
-        console.log('Resposta da busca por nome: ', response)
         switch (type) {
 
             case ("initial"):
@@ -37,7 +37,10 @@ export default function APIBusca(initialSearch) {
         parmsSeach = parmsSeachObject.BaseURL + parmsSeachObject.method
 
         try {
-            await axios.get(parmsSeach).then(res => response = res.data)
+            await axios.get(parmsSeach).then(res => {
+                console.log('Response: ', res)
+                return response = res.data
+            })
 
         } catch (error) {
             console.log(error)
