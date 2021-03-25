@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import APIBusca from '../../api/api'
 import Menus from '../menu/Menus'
 import Receita from './Receita'
+import Anime from '../lotties/kiss-heart'
 
 const ListReceita = props => {
 
@@ -69,7 +70,7 @@ const ListReceita = props => {
                     servings={receitaDado.servings}
                     key={receitaDado.id}
                 />))
-                    : <div>Carregando...</div>}
+                    : <Anime />}
             </div>
 
         </div>
