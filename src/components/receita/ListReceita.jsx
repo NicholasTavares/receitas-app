@@ -41,6 +41,7 @@ const ListReceita = props => {
                 } else {
                     paramIngredientes += `,+${ingrediente}`
                 }
+                return paramIngredientes
             })
         }
 
@@ -53,7 +54,7 @@ const ListReceita = props => {
 
         return setPesquisa(SearchByIngredientParams)
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => initialSearch(), [])
 
     return (

@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 #busca-nome-receita{
@@ -48,7 +49,13 @@
     justify-content: center;
     font-size: 30px;
     color: deeppink;
+    animation: seta-flutuante 1s ease-in-out alternate infinite;
+}
 
+@keyframes seta-flutuante{
+    to{
+        transform: translateY(10px);
+    }
 }
 
 .container-tags-busca{
@@ -66,22 +73,38 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 100%;
-    padding: 10px;
-    height: 150px;
+    padding: 0px;
+    height: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: slide ease-out 1s forwards;
+}
+
+@keyframes slide{
+    to{
+        padding: 10px;
+        height: 150px;
+    }
 }
 
 .busca-tags-ingredientes{
     outline: none;
-    padding: 8px;
+    padding: 0px;
     margin-bottom: 10px;
     width: 100%;
-    height: 30px;
+    height: 0px;
     background-color: aliceblue;
     border: 1px solid #ddd;
     border-radius: 8px;
+    animation: slide-tags ease-in 0.5s forwards;
+}
+
+@keyframes slide-tags{
+    to{
+        padding: 8px;
+        height: 30px;
+    }
 }
 
 #container-tags{
